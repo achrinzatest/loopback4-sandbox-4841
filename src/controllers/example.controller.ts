@@ -1,4 +1,4 @@
-import {post} from '@loopback/rest';
+import {param, post} from '@loopback/rest';
 
 /**
  * A simple controller to bounce back http requests
@@ -13,5 +13,5 @@ export class ExampleController {
       },
     },
   })
-  helloWorld(): void {}
+  example(@param.query.number('test') test: number): void {}
 }
