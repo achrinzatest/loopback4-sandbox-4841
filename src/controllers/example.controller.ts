@@ -17,7 +17,14 @@ export class ExampleController {
   })
   example(@param.query.number('test') test: number): void {}
 
-  @post('/example-oas')
+  @post('/example-oas-model')
   @oas.response(204, Example)
-  example2(@param.query.number('test') test: number): void {}
+  exampleOAS(@param.query.number('test') test: number): void {}
+
+  @post('/example-oas-responseobject')
+  @oas.response(204, {
+    type: 'string',
+    description: 'Hello world',
+  })
+  exampleOASResponseObject(@param.query.number('test') test: number): void {}
 }
